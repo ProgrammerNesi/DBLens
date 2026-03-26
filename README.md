@@ -31,7 +31,9 @@ FastAPI Backend
     └── Executor             run query → error → repair_sql → retry (max 3)
 ```
 
-Full architecture diagram: [`/assets/architecture.png`](./assets/architecture.png)
+Full architecture diagram: 
+
+![Architecture Diagram](./assets/architecture.png)
 
 ---
 
@@ -228,23 +230,4 @@ Sending 50 tables to an LLM on every query is expensive and inaccurate. DBLens u
 
 For a database with 50 tables, this reduces the prompt by ~80%, cuts token cost, and improves SQL accuracy because the model isn't distracted by irrelevant schema context.
 
----
-
-## Limitations
-
-- Read-only by design — only `SELECT` queries are allowed
-- Active connections are in-memory — reconnect after server restart
-- Free Gemini API tier has rate limits — switch to `gemini-1.5-flash-8b` for higher throughput
-- SQLite not yet supported (MySQL and PostgreSQL only)
-
----
-
-## Contributing
-
-Issues and PRs are welcome. The codebase is intentionally un-abstracted — every file does one clear thing, making it easy to extend.
-
----
-
-## License
-
-MIT
+Thank you:)
